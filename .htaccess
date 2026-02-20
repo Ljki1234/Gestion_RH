@@ -1,0 +1,38 @@
+# Configuration Apache pour l'application Gestion RH
+
+# Activer le moteur de réécriture
+RewriteEngine On
+
+# Protéger les fichiers de configuration
+<FilesMatch "^(config|includes)">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Protéger les fichiers sensibles
+<FilesMatch "\.(sql|md|log)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Redirection vers login si non connecté (optionnel)
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_URI} !^/Gestion_RH/login\.php$
+# RewriteRule ^(.*)$ login.php [L]
+
+# Désactiver l'affichage des répertoires
+Options -Indexes
+
+# Protection contre les injections
+<IfModule mod_php7.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+</IfModule>
+
+# Headers de sécurité
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

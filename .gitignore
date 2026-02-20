@@ -1,0 +1,55 @@
+# Fichiers de configuration sensibles
+config/database.php.local
+config/auth.php.local
+
+# Fichiers temporaires et de test
+test_connection.php
+fix_password.php
+update_admin_password.php
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+error_log
+
+# Fichiers de sauvegarde
+*.bak
+*.backup
+*~
+
+# Fichiers d'éditeur
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Fichiers de session PHP
+sessions/
+
+# Fichiers uploadés (si vous ajoutez cette fonctionnalité)
+uploads/temp/
+uploads/cache/
+
+# Fichiers de cache
+cache/
+tmp/
+
+# Variables d'environnement
+.env
+.env.local
+
+# Fichiers de configuration XAMPP (ne pas commiter)
+xampp/
+
+# Fichiers de base de données (ne pas commiter les dumps)
+*.sql.backup
+*.sql.gz
+
+# Fichiers de sauvegarde de base de données
+backup/
